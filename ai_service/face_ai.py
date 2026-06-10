@@ -14,8 +14,17 @@ from insightface.app import FaceAnalysis
 
 app = Flask(__name__)
 
-face_app = FaceAnalysis(name='buffalo_sc', providers=['CPUExecutionProvider'])
-face_app.prepare(ctx_id=0, det_size=(640, 640))
+face_app = None
+
+def get_face_app():
+    global face_app
+    if face_app is None:
+        face_app = FaceAnalysis(
+            name="buffalo_sc",
+            providers=["CPUExecutionProvider"]
+        )
+        face_app.prepare(ctx_id=0, det_size=(640, 640))
+    return face_app
 
 def decode_image(image_data):
     try:
@@ -52,7 +61,7 @@ def load_url_image(url):
 
 def get_embedding(img):
     try:
-        faces = face_app.get(img)
+        faces = get_face_app().get(img)
         if len(faces) == 0:
             return None
         return faces[0].normed_embedding
@@ -128,5 +137,6 @@ def verify():
         print('ERROR:', e)
         return jsonify({'match': False, 'error': str(e)})
 
-if __name__ == '__main__':
-    app.run(port=5050, debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5050))
+    app.run(host="0.0.0.0", port=port)
