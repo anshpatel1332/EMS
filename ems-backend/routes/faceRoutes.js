@@ -67,7 +67,8 @@ router.post("/verify", async (req, res) => {
     const known_faces = facesResult.rows;
 
     // 2. CALL PYTHON
-    const response = await axios.post("http://localhost:5050/verify", {
+    const AI_SERVICE_URL = process.env.AI_SERVICE_URL || "http://localhost:5050";
+    const response = await axios.post(`${AI_SERVICE_URL}/verify`, {
       image,
       known_faces
     });

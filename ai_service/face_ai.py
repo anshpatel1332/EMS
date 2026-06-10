@@ -1,10 +1,6 @@
 import sys
 import os
 
-# Force UTF-8 output so Windows cmd never crashes on special characters
-sys.stdout = open(sys.stdout.fileno(), mode='w', encoding='utf-8', buffering=1)
-sys.stderr = open(sys.stderr.fileno(), mode='w', encoding='utf-8', buffering=1)
-
 from flask import Flask, request, jsonify
 import numpy as np
 import base64
@@ -129,4 +125,6 @@ def verify():
         return jsonify({'match': False, 'error': str(e)})
 
 if __name__ == '__main__':
-    app.run(port=5050, debug=True)
+    port = int(os.environ.get('PORT', 5050))
+    app.run(host='0.0.0.0', port=port, debug=False)
+
