@@ -1,0 +1,158 @@
+/* Welcome Banner */
+
+.welcome-banner{
+  background: linear-gradient(135deg,#2563eb,#4f46e5);
+  color: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.welcome-banner h2{
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.welcome-banner p{
+  opacity: 0.95;
+  margin-bottom: 4px;
+}
+
+.employee-info-card{
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.employee-info-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}
+
+.employee-avatar{
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#2563eb,#4f46e5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.employee-info-card h3{
+  color: #111827;
+}
+
+.employee-info-card p{
+  color: #4b5563;
+  font-size: 16px;
+}
+
+.employee-info-card strong{
+  color: #111827;
+}
+
+.dashboard-card{
+  border-radius: 20px;
+  padding: 30px;
+  color: white;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.dashboard-card svg{
+  margin-bottom: 10px;
+}
+
+.dashboard-card h5{
+  font-weight: 600;
+}
+
+.dashboard-card h2{
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.dashboard-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.custom-btn{
+  background: white !important;
+  color: #111827 !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  transition: 0.3s;
+}
+
+.custom-btn:hover{
+  transform: scale(1.05);
+  background: #f3f4f6 !important;
+}
+
+.nav-buttons{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-btn{
+  color: white !important;
+  border: 1px solid #475569 !important;
+  transition: 0.3s;
+}
+
+.nav-btn:hover{
+  background: white !important;
+  color: #0f172a !important;
+}
+
+
+@media (max-width:768px){
+
+  .admin-navbar .container-fluid{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+  }
+
+  .nav-buttons{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .nav-buttons .btn{
+    width:180px;
+  }
+
+  .welcome-banner{
+    text-align:center;
+    padding:25px;
+  }
+
+  .employee-info-card .d-flex{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .employee-avatar{
+    margin:auto;
+  }
+
+  .dashboard-card{
+    min-height:220px;
+  }
+}

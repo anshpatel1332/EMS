@@ -1,0 +1,203 @@
+
+.employee-page {
+    min-height: 100vh;
+    background: linear-gradient(
+        to right,
+        #f8fafc,
+        #eef2ff
+    );
+}
+.navbar{
+    background:  #0f172a !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.employee-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.welcome-banner {
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5
+    );
+
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+
+    box-shadow: 0 10px 25px rgba(
+        37,
+        99,
+        235,
+        0.25
+    );
+}
+
+.welcome-banner h2 {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.welcome-banner p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+
+
+
+.employee-list-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+
+    box-shadow: 0 10px 25px rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+}
+.employee-list-card h3 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+.employee-table th,
+.employee-table td {
+    padding: 14px;
+    text-align: center;
+}
+.employee-table th {
+    background: #0f172a !important;
+    color: white !important;
+}
+.employee-table tr:nth-child(even) {
+    background: #f8fafc;
+}
+.employee-table tr:hover {
+    background: #eef2ff;
+}
+.add-btn {
+    display: block;
+    margin: 25px auto ;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.add-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-3px);
+}
+
+
+.employee-form {
+    background: white;
+
+    margin-top: 25px;
+    padding: 25px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(
+        0,
+        0,
+        0,
+        0.08
+    );
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.employee-form h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.employee-form input,
+.employee-form select {
+    padding: 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    outline: none;
+}
+.employee-form input:focus,
+.employee-form select:focus {
+    border-color: #2563eb;
+}
+.info-card {
+    padding: 25px;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(
+        0,
+        0,
+        0,
+        0.1
+    );
+}
+.info-card:hover {
+    transform: translateY(-8px);
+}
+.total-card {
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+}
+.admin-card {
+    background: linear-gradient(
+        135deg,
+        #f59e0b,
+        #fbbf24
+    );
+}
+.active-card {
+    background: linear-gradient(
+        135deg,
+        #10b981,
+        #34d399
+    );
+}
+.employee-table .btn {
+    margin: 3px;
+}
+
+@media (max-width: 768px) {
+
+    .employee-container {
+        width: 95%;
+    }
+    .welcome-banner {
+        text-align: center;
+    }
+    .employee-table {
+        font-size: 14px;
+    }
+    .employee-table th,
+    .employee-table td {
+        padding: 8px;
+    }
+    .add-btn {
+        width: 100%;
+    }
+}

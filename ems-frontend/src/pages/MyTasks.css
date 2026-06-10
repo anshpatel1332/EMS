@@ -1,0 +1,131 @@
+.mytasks-page {
+    min-height: 100vh;
+    background: #f4f4f4;
+}
+
+.mytasks-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.mytasks-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.mytasks-table th,
+.mytasks-table td {
+    padding: 14px;
+    text-align: center;
+}
+
+.mytasks-table th {
+    background: #0f172a;
+    color: white;
+}
+
+.mytasks-table tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.mytasks-table tr:hover {
+    background: #eef2ff;
+}
+
+.mytasks-table .btn {
+    border-radius: 10px;
+}
+
+.priority {
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.high {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.medium {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.low {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.status {
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.pending {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.in-progress {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.completed {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.completed-text {
+    color: #10b981;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+
+    .mytasks-container {
+        width: 95%;
+    }
+
+    .welcome-banner {
+        text-align: center;
+        padding: 25px;
+    }
+
+    .mytasks-table {
+        font-size: 14px;
+    }
+
+    .mytasks-table th,
+    .mytasks-table td {
+        padding: 8px;
+    }
+}
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
