@@ -67,8 +67,7 @@ router.post("/verify", async (req, res) => {
     const known_faces = facesResult.rows;
 
     // 2. CALL PYTHON
-    const AI_SERVICE_URL = process.env.AI_SERVICE_URL || "http://localhost:5050";
-    const response = await axios.post(`${AI_SERVICE_URL}/verify`, {
+    const response = await axios.post("http://localhost:5050/verify", {
       image,
       known_faces
     });
@@ -104,12 +103,12 @@ router.post("/verify", async (req, res) => {
       const dLon = (lon2 - lon1) * Math.PI / 180;
 
       const a =
-        Math.sin(dLat/2) * Math.sin(dLat/2) +
-        Math.cos(lat1*Math.PI/180) *
-        Math.cos(lat2*Math.PI/180) *
-        Math.sin(dLon/2) * Math.sin(dLon/2);
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) *
+        Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
 
-      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
       return R * c;
     }
@@ -121,11 +120,11 @@ router.post("/verify", async (req, res) => {
       parseFloat(OFFICE_LNG)
     );
 
-    console.log(`[verify] GPS — user:(${latitude},${longitude}) office:(${OFFICE_LAT},${OFFICE_LNG}) dist:${(distance*1000).toFixed(0)}m limit:${OFFICE_RADIUS}m`);
+    console.log(`[verify] GPS — user:(${latitude},${longitude}) office:(${OFFICE_LAT},${OFFICE_LNG}) dist:${(distance * 1000).toFixed(0)}m limit:${OFFICE_RADIUS}m`);
 
     if (distance > radiusKm) {
       console.log(`[verify] GPS FAILED — too far`);
-      return res.json({ message: `❌ Outside office range (${(distance*1000).toFixed(0)}m away, limit: ${OFFICE_RADIUS}m)` });
+      return res.json({ message: `❌ Outside office range (${(distance * 1000).toFixed(0)}m away, limit: ${OFFICE_RADIUS}m)` });
     }
 
     console.log(`[verify] GPS passed ✅ — inserting attendance`);
