@@ -67,7 +67,7 @@ router.post("/verify", async (req, res) => {
     const known_faces = facesResult.rows;
 
     // 2. CALL PYTHON
-    const response = await axios.post("http://localhost:5050/verify", {
+    const response = await axios.post("https://ems-1-y4ka.onrender.com/verify", {
       image,
       known_faces
     });
