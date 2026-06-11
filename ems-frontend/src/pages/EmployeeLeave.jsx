@@ -78,10 +78,12 @@ function EmployeeLeave() {
       setForm({ type: "", startDate: "", endDate: "", reason: "", attachment: null });
       setErrors({});
 
-      // Close modal
+      // Close modal by programmatically clicking the dismiss/cancel button (safest way to remove backdrop)
       const modalElement = document.getElementById("applyLeaveModal");
-      const modal = Modal.getInstance(modalElement) || new Modal(modalElement);
-      modal?.hide();
+      const closeBtn = modalElement?.querySelector('[data-bs-dismiss="modal"]');
+      if (closeBtn) {
+        closeBtn.click();
+      }
 
       // Toast notification
       setToastMsg("✅ Leave Request Submitted Successfully!");

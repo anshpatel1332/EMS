@@ -68,10 +68,12 @@ function AdminLeave() {
       // Re-fetch data so stats + table are both up-to-date
       await fetchData();
 
-      // Close Modal
+      // Close Modal by programmatically clicking the dismiss button
       const modalElement = document.getElementById("confirmActionModal");
-      const modal = Modal.getInstance(modalElement) || new Modal(modalElement);
-      modal?.hide();
+      const closeBtn = modalElement?.querySelector('[data-bs-dismiss="modal"]');
+      if (closeBtn) {
+        closeBtn.click();
+      }
 
       // Toast
       setToastType(action === "Approve" ? "success" : "danger");
