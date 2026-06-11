@@ -16,10 +16,21 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "https://ems-gray-three.vercel.app",
-      "http://localhost:5173",
-    ],
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or curl)
+      if (!origin) return callback(null, true);
+
+      const isAllowed =
+        origin === "https://ems-gray-three.vercel.app" ||
+        origin.startsWith("http://localhost:") ||
+        origin.endsWith(".vercel.app");
+
+      if (isAllowed) {
+        callback(null, true);
+      } else {
+        callback(null, false);
+      }
+    },
     credentials: true,
   })
 );
