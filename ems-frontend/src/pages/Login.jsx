@@ -31,7 +31,8 @@ function Login() {
         navigate("/employee");
       }
     } catch (error) {
-      alert("Invalid Email or Password");
+      const msg = error?.response?.data?.message || "Login failed. Please try again.";
+      alert(msg);
     }
   };
 
