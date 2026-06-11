@@ -10,6 +10,7 @@ const taskRoutes = require("./routes/taskRoutes");
 const locationRoutes = require("./routes/locationRoutes");
 const attendanceRoutes = require("./routes/attendanceRoutes");
 const faceRoutes = require("./routes/faceRoutes");
+const leaveRoutes = require("./routes/leaveRoutes");
 
 const app = express();
 
@@ -36,8 +37,9 @@ app.use("/tasks", taskRoutes);
 app.use("/api/location", locationRoutes);
 app.use("/api/attendance", attendanceRoutes);
 app.use("/api/face", faceRoutes);
+app.use("/api/leaves", leaveRoutes);
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-});
+});

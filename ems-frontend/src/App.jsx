@@ -9,8 +9,8 @@ import LocationSettings from "./pages/LocationSettings";
 import FaceRegistration from "./pages/FaceRegistration";
 import AttendanceManagement from "./pages/AttendanceManagement";
 import EmployeeAttendance from "./pages/EmployeeAttendance";
-
-<Route path="/attendance" element={<EmployeeAttendance />} />
+import EmployeeLeave from "./pages/EmployeeLeave";
+import AdminLeave from "./pages/AdminLeave";
 
 function App() {
   return (
@@ -22,7 +22,9 @@ function App() {
         <Route path="/employees" element={<Employees />} />
         <Route path="/task" element={<Task />} />
         <Route path="/mytasks" element={<MyTasks />} />
-<Route path="/attendance" element={<EmployeeAttendance />} />
+        <Route path="/attendance" element={<EmployeeAttendance />} />
+        <Route path="/leave" element={<EmployeeLeave />} />
+        <Route path="/admin/leave" element={<AdminLeave />} />
         <Route
           path="/admin/location-settings"
           element={<LocationSettings />}

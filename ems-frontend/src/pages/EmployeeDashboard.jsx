@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../Services/Api";
 import { useNavigate } from "react-router-dom";
-import { FaTasks, FaCheckCircle, FaClock } from "react-icons/fa";
+import { FaTasks, FaCheckCircle, FaClock, FaUmbrellaBeach } from "react-icons/fa";
 import "./EmployeeDashboard.css";
 
 function EmployeeDashboard() {
@@ -63,7 +63,13 @@ function EmployeeDashboard() {
             >
               📍 Mark Attendance
             </button>
-
+            <button
+              className="btn btn-primary"
+              onClick={() => navigate("/leave")}
+              style={{ background: "#4f46e5", border: "none" }}
+            >
+              🌴 Leave
+            </button>
             <button
               className="btn btn-danger"
               onClick={() => {
@@ -79,19 +85,19 @@ function EmployeeDashboard() {
 
       <div className="container py-4">
 
-        <div className="welcome-banner mb-5">
+        <div className="welcome-banner mb-4">
           <h2>Welcome Back, {employee.name} 👋</h2>
           <p>{employee.role} • {employee.department}</p>
         </div>
 
-        <div className="employee-info-card mb-5">
+        <div className="employee-info-card mb-4">
           <p><strong>Name:</strong> {employee.name}</p>
           <p><strong>Email:</strong> {employee.email}</p>
           <p><strong>Department:</strong> {employee.department}</p>
           <p><strong>Role:</strong> {employee.role}</p>
         </div>
 
-        <div className="row g-4">
+        <div className="row g-4 mb-4">
 
           <div className="col-md-4">
             <div className="dashboard-card employee-card">
@@ -117,6 +123,28 @@ function EmployeeDashboard() {
             </div>
           </div>
 
+        </div>
+
+        {/* Quick Actions / Features */}
+        <div className="row g-4 mt-2">
+          <div className="col-md-6">
+            <div className="dashboard-card" style={{ background: "linear-gradient(135deg, #10b981, #059669)", minHeight: "180px", color: "white" }}>
+              <h4 className="fw-bold mb-2">Attendance Management 📍</h4>
+              <p className="small mb-3 opacity-90">Mark your daily attendance and check location settings.</p>
+              <button className="btn custom-btn mt-auto align-self-start" onClick={() => navigate("/attendance")}>
+                Mark Attendance
+              </button>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="dashboard-card" style={{ background: "linear-gradient(135deg, #2563eb, #4f46e5)", minHeight: "180px", color: "white" }}>
+              <h4 className="fw-bold mb-2">Leave Management 🌴</h4>
+              <p className="small mb-3 opacity-90">Apply for casual, sick, or earned leaves and check your request history.</p>
+              <button className="btn custom-btn mt-auto align-self-start" onClick={() => navigate("/leave")}>
+                Apply Leave / View History
+              </button>
+            </div>
+          </div>
         </div>
 
       </div>

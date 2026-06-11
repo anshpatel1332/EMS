@@ -81,6 +81,13 @@ function AdminDashboard() {
             </button>
 
             <button
+              className="btn nav-btn"
+              onClick={() => navigate("/admin/leave")}
+            >
+              Leave Requests
+            </button>
+
+            <button
               className="btn btn-danger"
               onClick={() => navigate("/")}
             >
