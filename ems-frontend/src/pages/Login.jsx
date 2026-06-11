@@ -13,18 +13,18 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await API.post("/auth/login", {
-        email,
-        password,
-      });
-
+      const response = await API.post("/auth/login", { email, password });
       const user = response.data;
-       if (!user || !user.id) {
-    alert("Invalid login response from server");
-    return;
-  }
 
-  localStorage.setItem("user", JSON.stringify(user));
+      if (!user || !user.id) {
+        alert("Invalid login response from server");
+        return;
+      }
+
+      // Store basic user info in localStorage for quick UI reads.
+      // The real auth token lives in the httpOnly cookie.
+      localStorage.setItem("user", JSON.stringify(user));
+
       if (user.role === "admin") {
         navigate("/admin");
       } else {

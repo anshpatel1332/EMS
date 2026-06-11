@@ -2,6 +2,7 @@ require("dotenv").config();
 console.log("THIS IS MY SERVER FILE");
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 const authRoutes = require("./routes/authRoutes");
 const employeeRoutes = require("./routes/employeesRoutes");
@@ -22,6 +23,8 @@ app.use(
   })
 );
 app.use(express.json({ limit: "10mb" }));
+app.use(cookieParser()); // Parse cookies on every request
+
 
 app.use("/auth", authRoutes);
 app.use("/employees", employeeRoutes);
