@@ -26,6 +26,10 @@ app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser()); // Parse cookies on every request
 
 
+app.get("/", (req, res) => {
+  res.json({ status: "ok", service: "EMS Node.js Backend" });
+});
+
 app.use("/auth", authRoutes);
 app.use("/employees", employeeRoutes);
 app.use("/tasks", taskRoutes);
