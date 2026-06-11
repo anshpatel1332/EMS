@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "bootstrap";
 import API from "../Services/Api";
 import {
   FaCheck,
@@ -68,9 +69,8 @@ function AdminLeave() {
       await fetchData();
 
       // Close Modal
-      const modal = window.bootstrap?.Modal?.getInstance(
-        document.getElementById("confirmActionModal")
-      );
+      const modalElement = document.getElementById("confirmActionModal");
+      const modal = Modal.getInstance(modalElement) || new Modal(modalElement);
       modal?.hide();
 
       // Toast
@@ -85,12 +85,16 @@ function AdminLeave() {
     } catch (err) {
       console.log("Error updating leave:", err);
       setToastType("danger");
-      setToastMsg("❌ Failed to update leave request. Please try again.");
+      const errMsg = err.response?.data?.message || err.message || "Please try again.";
+      setToastMsg(`❌ Failed to update leave request: ${errMsg}`);
       setShowToast(true);
       setTimeout(() => setShowToast(false), 4000);
     }
 
-    setConfirmAction({ request: null, action: "" });
+    // Delay clearing confirmAction state to allow the modal transition to complete cleanly
+    setTimeout(() => {
+      setConfirmAction({ request: null, action: "" });
+    }, 300);
   };
 
   const statusBadge = (status) => {

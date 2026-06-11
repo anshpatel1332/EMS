@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaTasks, FaCheckCircle, FaClock, FaCalendarAlt, FaUmbrellaBeach } from "react-icons/fa";
+import { Modal } from "bootstrap";
 import API from "../Services/Api";
 import "./EmployeeDashboard.css";
 import "./LeaveEmployee.css";
@@ -63,13 +64,14 @@ function EmployeeLeave() {
 
     setSubmitting(true);
     try {
+      const empId = user.id ? parseInt(user.id, 10) : null;
       await API.post("/api/leaves", {
-        employee_id: user.id,
+        employee_id: empId,
         leave_type: form.type,
         start_date: form.startDate,
         end_date: form.endDate,
         reason: form.reason,
-        attachment_url: null, // attachment upload is optional and not implemented
+        attachment_url: null,
       });
 
       // Clear form
@@ -78,7 +80,7 @@ function EmployeeLeave() {
 
       // Close modal
       const modalElement = document.getElementById("applyLeaveModal");
-      const modal = window.bootstrap?.Modal?.getInstance(modalElement) || new window.bootstrap.Modal(modalElement);
+      const modal = Modal.getInstance(modalElement) || new Modal(modalElement);
       modal?.hide();
 
       // Toast notification
@@ -90,7 +92,8 @@ function EmployeeLeave() {
       fetchLeaves();
     } catch (err) {
       console.error("Error submitting leave request:", err);
-      setToastMsg("❌ Failed to submit leave request. Try again.");
+      const errMsg = err.response?.data?.message || err.message || "Try again.";
+      setToastMsg(`❌ Failed to submit leave request: ${errMsg}`);
       setShowToast(true);
       setTimeout(() => setShowToast(false), 4000);
     } finally {
