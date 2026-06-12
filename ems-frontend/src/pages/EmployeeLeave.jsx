@@ -111,28 +111,77 @@ function EmployeeLeave() {
 
   return (
     <div className="dashboard-container">
-      {/* Navbar */}
-      <nav className="navbar navbar-expand-lg admin-navbar px-4">
+
+      <nav className="navbar navbar-expand-lg navbar-dark admin-navbar px-4">
         <div className="container-fluid">
-          <h3 className="text-white fw-bold m-0">Employee Panel</h3>
-          <div className="nav-buttons d-flex gap-2 flex-wrap">
-            <button className="btn nav-btn" onClick={() => navigate("/employee")}>Dashboard</button>
-            <button className="btn nav-btn" onClick={() => navigate("/mytasks")}>My Tasks</button>
-            <button
-              className="btn btn-success"
-              onClick={() => navigate("/attendance")}
-            >
-              📍 Mark Attendance
-            </button>
-            <button
-              className="btn btn-primary active fw-semibold"
-              onClick={() => navigate("/leave")}
-              style={{ background: "#4f46e5", border: "none" }}
-            >
-              🌴 Leave
-            </button>
-            <button className="btn btn-danger" onClick={() => { localStorage.removeItem("user"); navigate("/"); }}>Logout</button>
+
+
+          <h3 className="text-white fw-bold m-0">
+            Employee Panel
+          </h3>
+
+
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#employeeNavbar"
+            aria-controls="employeeNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+
+          <div
+            className="collapse navbar-collapse justify-content-end"
+            id="employeeNavbar"
+          >
+            <div className="d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0">
+
+              <button
+                className="btn nav-btn"
+                onClick={() => navigate("/employee")}
+              >
+                Dashboard
+              </button>
+
+              <button
+                className="btn nav-btn"
+                onClick={() => navigate("/mytasks")}
+              >
+                My Tasks
+              </button>
+
+              <button
+                className="btn btn-success"
+                onClick={() => navigate("/attendance")}
+              >
+                📍 Mark Attendance
+              </button>
+
+              <button
+                className="btn btn-primary active fw-semibold"
+                onClick={() => navigate("/leave")}
+                style={{ background: "#4f46e5", border: "none" }}
+              >
+                🌴 Leave
+              </button>
+
+              <button
+                className="btn btn-danger"
+                onClick={() => {
+                  localStorage.removeItem("user");
+                  navigate("/");
+                }}
+              >
+                Logout
+              </button>
+
+            </div>
           </div>
+
         </div>
       </nav>
 

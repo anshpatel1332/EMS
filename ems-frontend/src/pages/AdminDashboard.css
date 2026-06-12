@@ -1,27 +1,27 @@
-body{
-    background: linear-gradient(
-        to right,
-        #f8fafc,
-    #eef2ff
-    );
-    font-family: "poppins",sans-serif;
+body {
+  background: linear-gradient(to right,
+      #f8fafc,
+      #eef2ff);
+  font-family: "poppins", sans-serif;
 }
 
 
 
 .dashboard-container {
-    min-height:100vh;
+  min-height: 100vh;
 }
 
 
 .admin-navbar {
-    background:  #0f172a;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  background: #0f172a;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
+
 .nav-btn {
-    color: white !important;
-    border: 1px solid #334155 !important;
+  color: white !important;
+  border: 1px solid #334155 !important;
 }
+
 .nav-btn:hover {
   background: white !important;
   color: #0f172a !important;
@@ -30,77 +30,67 @@ body{
 
 
 .dashboard-card {
-    border-radius: 20px;
-    padding: 30px;
-    color: white;
-    min-height: 260px;
-    display: flex;
+  border-radius: 20px;
+  padding: 30px;
+  color: white;
+  min-height: 260px;
+  display: flex;
   flex-direction: column !important;
   justify-content: center;
 
-  transition: 0.3s ;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4) !important;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
 
 }
+
 .dashboard-card:hover {
   transform: translateY(-10px) !important;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
 }
+
 .employee-card {
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #3b82f6
-  );
+  background: linear-gradient(135deg,
+      #2563eb,
+      #3b82f6);
 }
+
 .task-card {
-  background: linear-gradient(
-    135deg,
-    #f59e0b,
-    #fbbf24
-  );
+  background: linear-gradient(135deg,
+      #f59e0b,
+      #fbbf24);
 }
+
 .completed-card {
-  background: linear-gradient(
-    135deg,
-    #10b981,
-    #34d399
-  );
+  background: linear-gradient(135deg,
+      #10b981,
+      #34d399);
 }
+
 .pending-card {
-  background: linear-gradient(
-    135deg,
-    #ef4444,
-    #f87171
-  );
+  background: linear-gradient(135deg,
+      #ef4444,
+      #f87171);
 }
 
 .custom-btn {
   background: white !important;
   color: #111827 !important;
   border: none !important;
-  font-weight: 600 !important  ;
-  border-radius: 12px!important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
 }
 
 .custom-btn:hover {
   background: #f3f4f6 !important;
-    color: #111827 !important;
+  color: #111827 !important;
 }
 
 .table {
-  margin-bottom: 0 !important;;
+  margin-bottom: 0 !important;
+  ;
 }
+
 @media (max-width: 768px) {
-
-  .admin-navbar .container-fluid {
-    flex-direction: column;
-     flex-wrap: wrap;
-      align-items: center;
-  justify-content: space-between;
-    gap: 15px;
-  }
-
   .welcome-banner {
     text-align: center;
     padding: 25px;
